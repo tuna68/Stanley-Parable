@@ -7,22 +7,24 @@ class gameplay {
     int cowardEnding = 0;
     int seriousEnding = 0;
     int freedomEnding = 0;
+    int countdownEnding = 0;
+    int museumEnding = 0;
+    int facilityOn = 0;
       
     void mainMenumethod() {
         Scanner input;
         input = new Scanner(System.in);
         String first;
-        System.out.println("\n \n \n Play \n Options \n Endings \n Quit");
+        System.out.println("\n\n\n\n\n\n Play \n Options \n Endings \n Quit");
         if (hintsTF == true) {
-        System.out.print("(try inputting sv_cheats 1)");
-        System.out.println("");
+            System.out.print("(try inputting sv_cheats 1)");
+            System.out.println("");
         }
         first = input.nextLine();
         if (first.equals("play")) {
             openingmethod();
         } else if (first.equals("options")) {
             optionsmethod();
-
         } else if (first.equals("sv_cheats 1")) {
          seriousEndingmethod();
         } else if (first.equals("endings")) {
@@ -51,6 +53,11 @@ class gameplay {
          System.out.println("upStairsmethod");
          System.out.println("doorChoicemethod");
          System.out.println("openingmethod");
+         System.out.println("elevatorMethod");
+         System.out.println("facilityMethod");
+         System.out.println("facilityOffmethod");
+         System.out.println("facilityOnmethod");
+         System.out.println("escapeMethod");
          option1 = input.nextLine();
          
          if (option1.equals("endingsMethod")) {
@@ -67,6 +74,16 @@ class gameplay {
             doorChoicemethod();
          } else if (option1.equals("openingmethod")) {
             openingmethod();
+         } else if (option1.equals("elevatorMethod")) {
+            elevatorMethod();
+         } else if (option1.equals("facilityMethod")) {
+            facilityMethod();
+         } else if (option1.equals("facilityOffmethod")) {
+            facilityOffmethod();
+         } else if (option1.equals("facilityOnmethod")) {
+            facilityOnmethod();
+         } else if (option1.equals("escapeMethod")) {
+            escapeMethod();
          } else {
             System.out.println("invalid");
             debuggerMethod();
@@ -93,6 +110,12 @@ class gameplay {
          }
          if (freedomEnding == 1) {
             System.out.println("\nThe Freedom Ending Completed");
+         }
+         if (countdownEnding == 1) {
+            System.out.println("\nThe Countdown Ending Completed");
+         }
+         if (museumEnding == 1) {
+            System.out.println("\nThe Museum Ending Completed");
          }
          System.out.println("\nBack");
          option1 = input.nextLine();
@@ -339,13 +362,122 @@ class gameplay {
       System.out.println("For he would dismantle the controls once and for all.");
       thread.wait(3000);
       System.out.println("And when at last he found the source of the room's power, he knew it was his duty, his obligation, to put an end to this horrible place and to everything it stood for.");
-      System.out.println("\n Off | On");
+      System.out.println("\nOff | On");
       option1 = input.nextLine();
       
       if (option1.equals("on")) {
-         //facilityonmethod
+         facilityOnmethod();
       } else {
          facilityOffmethod();
+      }
+    }
+    
+    void facilityOnmethod() {
+      Scanner input;
+      input = new Scanner(System.in);
+      util thread = new util();
+      String option1;
+      if (facilityOn == 0) {
+         System.out.println("Oh Stanley, you didn't just activate the controls, did you?");
+         thread.wait(4000);
+         System.out.println("After they kept you enslaved all these years you go and you try to take control of the machine for yourself, is that want you wanted? Control?");
+         thread.wait(6000);
+         System.out.println("Oh...Stanley. *sigh* I applaud your effort, I really do, but you need to understand; there's only so much that machine can do.");
+         thread.wait(5500);
+         System.out.println("You were supposed to let it go, turn the controls off, and leave.");
+         thread.wait(4500);
+         System.out.println("If you want to throw my story off track, you're going to have to do much better than that.");
+         thread.wait(5000);
+         System.out.println("I'm afraid you don't have nearly the power you think you do; for example, and I believe you'll find this pertinent:");
+         thread.wait(5500);
+         System.out.println("Stanley suddenly realized that he had just initiated the network's emergency detonation system.");
+         thread.wait(5000);
+         System.out.println("In the event that this machine is activated without proper DNA identification, nuclear detonators are set to explode, eliminating the entire complex.");
+         thread.wait(6500);
+         System.out.println("How long until detonation, then? Hmm...let's say, um...two minutes.");
+         thread.wait(4500);
+         System.out.println("[Lights turn on, as well as a humongous countdown clock]");
+         thread.wait(4000);
+         System.out.println("Ah, now this is making things a little more fun, isn't it, Stanley? It's your time to shine! You are the star! It's your story now; shape it to your heart's desires.");
+         thread.wait(6500);
+         System.out.println("Ooh, this is much better than what I had in mind! What a shame we have so little time left to enjoy it.");
+         thread.wait(5000);
+         System.out.println("Mere moments until the bomb goes off, but what precious moments each one of them is! More time to talk about you, about me, where we're going, what this all means...I barely know where to start!");
+         thread.wait(7000);
+         System.out.println("What's that? You'd like to know where your co-workers are? A moment of solace before you're obliterated?");
+         thread.wait(5000);
+         System.out.println("Alright. I'm in a good mood, and you're going to die anyway. I'll tell you exactly what happened to them: I erased them. I turned off the machine; I set you free.");
+         thread.wait(6000);
+         System.out.println("Of course, that was merely in this instance of the story. Sometimes when I tell it, I simply let you sit there in your office forever, pushing buttons endlessly and then dying alone.");
+         thread.wait(6500);
+         System.out.println("Other times, I let the office sink into the ground, swallowing everyone inside; or I let it burn to a crisp.");
+         thread.wait(5000);
+         System.out.println("I have to say this, though, this version of events has been rather amusing.");
+         thread.wait(5000);
+         System.out.println("Watching you try to make sense of everything and take back the control wrested away from you...it's quite rich. I almost hate to see it go!");
+         thread.wait(6500);
+         System.out.println("But I'm sure whatever I come up with on the next go around will be even better.");
+         thread.wait(5000);
+         System.out.println("My goodness! Only 34 seconds left...but I'm enjoying this so much!");
+         thread.wait(5000);
+         System.out.println("You know what? To hell with it. I'm going to put some extra time on the clock; why not!");
+         thread.wait(5500);
+         System.out.println("These are precious additional seconds, Stanley. Time doesn't grow on trees!");
+         thread.wait(5500);
+         System.out.println("Oh, dear me, what's the matter, Stanley? Is it that you have no idea where you are going or what you're supposed to be doing right now?");
+         thread.wait(6500);
+         System.out.println("Or did you just assume when you saw that timer that something in this room is capable of turning it off?");
+         thread.wait(6000);
+         System.out.println("I mean, look at you, running from button to button, screen to screen, clicking on every little thing in this room!");
+         thread.wait(6000);
+         System.out.println("These numbered buttons! No! These colored ones! Or maybe this big, red button! Or this door! Everything! Anything! Something here will save me!");
+         thread.wait(6500);
+         System.out.println("Why would you think that, Stanley? That this video game can be beaten, won, solved? Do you have any idea what your purpose in this place is?");
+         thread.wait(7000);
+         System.out.println("Hahaha, heh, Stanley...you're in for quite a disappointment.");
+         thread.wait(5000);
+         System.out.println("But here's a spoiler for you: that timer isn't a catalyst to keep the action moving along. It's just seconds ticking away to your death.");
+         thread.wait(6000);
+         System.out.println("You're only still playing instead of watching a cutscene because I want to watch you for every moment that you're powerless, to see you made humble.");
+         thread.wait(7000);
+         System.out.println("This is not a challenge. It's a tragedy. You wanted to control this world; that's fine. But I'm going to destroy it first, so you can't.");
+         thread.wait(6750);
+         System.out.println("Take a look at the clock, Stanley. That's 30 seconds you have left to struggle.");
+         thread.wait(5000);
+         System.out.println("Thirty seconds until a big boom, and then nothing. No ending here, just you being blown to pieces.");
+         thread.wait(5500);
+         System.out.println("Will you cling desperately to your frail life, or will you let it go peacefully?");
+         thread.wait(5000);
+         System.out.println("Another choice! Make it count. Or don't. It's all the same to me. All a part of the joke.");
+         thread.wait(5500);
+         System.out.println("And believe me, I will be laughing at every second of your inevitable life, from the moment we fade in until the moment I say:");
+         thread.wait(6500);
+         System.out.println("Happily");
+         thread.wait(1000);
+         System.out.println("Ever");
+         thread.wait(1000);
+         System.out.println("---");
+         thread.wait(7000);
+         System.out.println("\nTHE COUNTDOWN ENDING COMPLETED");
+         thread.wait(5000);
+         ending++;
+         facilityOn++;
+         countdownEnding = 1;
+         mainMenumethod();
+      } else {
+         System.out.println("But you really believe there’s an answer! How many times will you replay this bit, looking desperately for a solution?");
+         thread.wait(5500);
+         System.out.println("Ten? A hundred? A thousand? I look forward to finding out, and to watching the bomb go off each time you fail.");
+         thread.wait(5500);
+         System.out.println("Just you and me and the retching explosion of fire and metal over and over and over for all of eternity.");
+         thread.wait(5000);
+         System.out.println("And Stanley died again.");
+         thread.wait(3000);
+         System.out.println("And Stanley died again.");
+         thread.wait(3000);
+         System.out.println("And Stanley died again.");
+         thread.wait(6000);
+         mainMenumethod();
       }
     }
     
@@ -367,12 +499,84 @@ class gameplay {
       option1 = input.nextLine();
       
       if (option1.equals("escape")) {
-         //escape method
+         escapeMethod();
       } else {
          facilityMethod();
       }
     }
     
+    void escapeMethod() {
+    Scanner input;
+    input = new Scanner(System.in);
+    util thread = new util();
+    String option1;
+    System.out.println("Although this passageway had the word 'escape' written on it, the truth was that at the end of this hall, Stanley would meet his violent death.");
+    System.out.println("\nWalk Forward | Turn Around");
+    option1 = input.nextLine();
+    
+    if (option1.equals("walk forward")) {
+      System.out.println("The door behind him was not shut. Stanley still had every opportunity to turn around and get back on track.");
+      System.out.println("\nWalk Forward | Turn Around");
+      option1 = input.nextLine();
+      
+      if (option1.equals("walk forward")) {
+         System.out.println("At this point, Stanley was making a conscious, concerted effort to walk forward, and willingly confront his death.");
+         System.out.println("As the machine whirled into motion, and Stanley was inched closer and closer to his demise, he reflected that his life had been of no consequence whatsoever.");
+         thread.wait(7000);
+         System.out.println("Stanley can't see the bigger picture. He doesn't know the real story. Trapped forever in his narrow vision of what this world is.");
+         thread.wait(6000);
+         System.out.println("Perhaps his death was of no great loss, like plucking the eyeballs from a blind man.");
+         thread.wait(5000);
+         System.out.println("And so he resigned, and willingly accepted this violent end to his brief and shallow life. Farewell, Stanley.");
+         thread.wait(7500);
+         System.out.println("[FEMALE NARRATOR]");
+         thread.wait(4000);
+         System.out.println("'Farewell Stanley' cried the Narrator, as Stanley was led helplessly into the enormous metal jaws.");
+         thread.wait(6000);
+         System.out.println("In a single visceral instant, Stanley was obliterated, as the machine crushed every bone in his body, killing him instantly.");
+         thread.wait(7000);
+         System.out.println("And yet it would be just a few minutes before Stanley would restart the game, back in his office, as alive as ever.");
+         thread.wait(6500);
+         System.out.println("What exactly did the Narrator think he was going to accomplish?");
+         thread.wait(4500);
+         System.out.println("When every path you can walk has been created for you long in advance, death becomes meaningless, making life the same.");
+         thread.wait(6500);
+         System.out.println("Do you see now? Do you see that Stanley was already dead from the moment he hit start?");
+         thread.wait(6000);
+         System.out.println("*laugh* Oh, look at these two.");
+         thread.wait(4000);
+         System.out.println("How they wish to destroy one another. How they wish to control one another.");
+         thread.wait(5000);
+         System.out.println("How they both wish to be free.");
+         thread.wait(4000);
+         System.out.println("Can you see? Can you see how much they need one another?");
+         thread.wait(5500);
+         System.out.println("No, perhaps not. Sometimes these things cannot be seen.");
+         thread.wait(5500);
+         System.out.println("But listen to me, You can still save these two. You can stop the program before they both fail");
+         thread.wait(6500);
+         System.out.println("Press 'escape' and press 'quit.' There's no other way to beat this game.");
+         thread.wait(5500);
+         System.out.println("As long as you move forward, you'll be walking someone else's path. Stop now, and it'll be your only true choice.");
+         thread.wait(7000);
+         System.out.println("Whatever you do, choose it! Don't let time choose for you! Don't let time-");
+         thread.wait(8000);
+         System.out.println("\nTHE MUSEUM ENDING COMPLETED");
+         thread.wait(5000);
+         ending++;
+         museumEnding = 1;
+         mainMenumethod();
+      } else {
+         System.out.println("But of course, Stanley thought better of it, and realized he simply had too much to live for.");
+         thread.wait(5000);
+         facilityMethod();
+      }
+    } else {
+         System.out.println("But of course, Stanley thought better of it, and realized he simply had too much to live for.");
+         thread.wait(5000);
+         facilityMethod();
+    }
+  }
     void upStairsmethod() {
     Scanner input;
     input = new Scanner(System.in);
@@ -482,10 +686,10 @@ class gameplay {
                option1 = input.nextLine();
                elevatorMethod();
                } 
-            }
-        }
+             }
+          }
+       }
     }
-}
     
     void doorChoicemethod() {
         Scanner input;

@@ -8,7 +8,7 @@ public class StanleyParable{
    gameplay stanley = new gameplay();
    util thread = new util();
    thread.wait(4000);
-   System.out.println("\n\n\n\n\nBefore playing, please type each option exactly as you see it, in all lowercase.");
+   System.out.println("\n\n\n\nBefore playing, please type each option exactly as you see it, in all lowercase.");
    System.out.println("The game will not function if you type with capitals/mispell.");
    thread.wait(5000);
    stanley.mainMenumethod();
