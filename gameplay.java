@@ -9,11 +9,13 @@ class gameplay {
     int freedomEnding = 0;
     int countdownEnding = 0;
     int museumEnding = 0;
+    int mariellaEnding = 0;
     int facilityOn = 0;
       
     void mainMenumethod() {
         Scanner input;
         input = new Scanner(System.in);
+        util thread = new util();
         String first;
         System.out.println("\n\n\n\n\n\n Play \n Options \n Endings \n Quit");
         if (hintsTF == true) {
@@ -31,8 +33,12 @@ class gameplay {
          endingsMethod();
         } else if (first.equals("debugger")) {
          debuggerMethod();
+        } else if (first.equals("quit")) {
+         System.out.println("Quitting");
         } else {
-        System.out.println("Quitting");
+         System.out.println("Invalid!");
+         thread.wait(1500);
+         mainMenumethod();
         }
     }
     
@@ -116,6 +122,9 @@ class gameplay {
          }
          if (museumEnding == 1) {
             System.out.println("\nThe Museum Ending Completed");
+         }
+         if (mariellaEnding == 1) {
+            System.out.println("\nMariella Ending Completed");
          }
          System.out.println("\nBack");
          option1 = input.nextLine();
@@ -481,6 +490,30 @@ class gameplay {
       }
     }
     
+    void rLeftdoorMethod() {
+      Scanner input;
+      input = new Scanner(System.in);
+      util thread = new util();
+      String option1;
+      System.out.println("And so he detoured through the maintenance section, walked straight ahead to the opposite door, and got back on track.");
+      System.out.println("\nWalk Forward | Use Elevator");
+      option1 = input.nextLine();
+      
+      if (option1.equals("walk forward")) {
+         System.out.println("Coming to a staircase, Stanley walked upstairs to his boss's office.");
+         System.out.println("\nUp Stairs | Down Stairs");
+         option1 = input.nextLine();
+            
+         if (option1.equals("up stairs")) {
+           upStairsmethod();
+         } else {
+           downstairsMethod();
+         }
+       } else {
+         //maintenceElevatormethod
+       }               
+    }
+    
     void elevatorMethod() {
       Scanner input;
       input = new Scanner(System.in);
@@ -521,6 +554,7 @@ class gameplay {
       
       if (option1.equals("walk forward")) {
          System.out.println("At this point, Stanley was making a conscious, concerted effort to walk forward, and willingly confront his death.");
+         thread.wait(4500);
          System.out.println("As the machine whirled into motion, and Stanley was inched closer and closer to his demise, he reflected that his life had been of no consequence whatsoever.");
          thread.wait(7000);
          System.out.println("Stanley can't see the bigger picture. He doesn't know the real story. Trapped forever in his narrow vision of what this world is.");
@@ -553,7 +587,7 @@ class gameplay {
          thread.wait(5500);
          System.out.println("No, perhaps not. Sometimes these things cannot be seen.");
          thread.wait(5500);
-         System.out.println("But listen to me, You can still save these two. You can stop the program before they both fail");
+         System.out.println("But listen to me, You can still save these two. You can stop the program before they both fail.");
          thread.wait(6500);
          System.out.println("Press 'escape' and press 'quit.' There's no other way to beat this game.");
          thread.wait(5500);
@@ -596,20 +630,22 @@ class gameplay {
     option1 = input.nextLine();
       
     if (option1.equals("wait")) {//first option (in upstairsmethod)
-      System.out.println("wait");//if user chooses wait
+      System.out.println("Stanley just sat around twiddling his thumbs. Trying to input anything on the device was useless, since he could never possibly know that the combination was 2-8-4-5.");//if user chooses wait
       System.out.println("\nInput Code");
       option1 = input.nextLine();
       System.out.println("Code:");
       code = input.nextInt();
       
       if (code == 2845) {//if correct code
-         System.out.println("correct");
+         System.out.println("Yet incredibly, by simply pushing random buttons on the keypad, Stanley happened to input the correct code by sheer luck. Amazing. He stepped into the newly opened passageway.");
          System.out.println("\nUse Elevator");
          option1 = input.nextLine();
          option1 = input.nextLine();
          elevatorMethod();
       } else {
-         System.out.println("wrong");//wrong code (1st try)
+         System.out.println("Stanley began entering random codes into the keypad, knowing full well the sheer statistical unlikelihood that this would ever result in a correct combination.");
+         thread.wait(5000);
+         System.out.println("If he knew that the combo was 2-8-4-5, it would be another story entirely. But no. No, this is what he was going to do instead.");//wrong code (1st try)
          System.out.println("\nInput Code");
          option2 = input.nextLine();
          option2 = input.nextLine();
@@ -617,14 +653,13 @@ class gameplay {
          code = input.nextInt();
          
          if (code == 2845) {//if correct code
-            System.out.println("correct");
+            System.out.println("Yet incredibly, by simply pushing random buttons on the keypad, Stanley happened to input the correct code by sheer luck. Amazing. He stepped into the newly opened passageway.");
             System.out.println("\nUse Elevator");
             option1 = input.nextLine();
             option1 = input.nextLine();
             elevatorMethod();
          } else {
-            System.out.println("wrong");//wrong code (2nd try)
-            System.out.println("override");
+            System.out.println("For god's- but it turns out that the panel's emergency override kicked in, and the door just opened all by itself, and Stanley just got the hell along with the story. Well whoop-dee-doo.");//wrong code (2nd try)
             System.out.println("\nUse Elevator");
             option1 = input.nextLine();
             option1 = input.nextLine();
@@ -636,33 +671,34 @@ class gameplay {
       code = input.nextInt();
       
       if (code == 2845) {//if correct code
-         System.out.println("correct");
+         System.out.println("Yet incredibly, by simply pushing random buttons on the keypad, Stanley happened to input the correct code by sheer luck. Amazing. He stepped into the newly opened passageway.");
          System.out.println("\nUse Elevator");
          option1 = input.nextLine();
          option1 = input.nextLine();
          elevatorMethod();
       } else {
-         System.out.println("wrong");//wrong code (1st try)
+         System.out.println("Stanley began entering random codes into the keypad, knowing full well the sheer statistical unlikelihood that this would ever result in a correct combination.");
+         thread.wait(5000);
+         System.out.println("If he knew that the combo was 2-8-4-5, it would be another story entirely. But no. No, this is what he was going to do instead.");//wrong code (1st try)
          System.out.println("\nInput code | Wait");
          option1 = input.nextLine();
          option1 = input.nextLine();
          
          if (option1.equals("wait")) {
-         System.out.println("wait");//if user chooses wait
+         System.out.println("Stanley just sat around twiddling his thumbs. Trying to input anything on the device was useless, since he could never possibly know that the combination was 2-8-4-5.");//if user chooses wait
          System.out.println("\nInput Code");
          option1 = input.nextLine();
          System.out.println("Code:");
          code = input.nextInt();
          
          if (code == 2845) {//if correct code
-            System.out.println("correct");
+            System.out.println("Yet incredibly, by simply pushing random buttons on the keypad, Stanley happened to input the correct code by sheer luck. Amazing. He stepped into the newly opened passageway.");
             System.out.println("\nUse Elevator");
             option1 = input.nextLine();
             option1 = input.nextLine();
             elevatorMethod();
          } else {
-            System.out.println("wrong");//wrong code (2nd try)
-            System.out.println("override");
+            System.out.println("For god's- but it turns out that the panel's emergency override kicked in, and the door just opened all by itself, and Stanley just got the hell along with the story. Well whoop-dee-doo.");//wrong code (2nd try)
             System.out.println("\nUse Elevator");
             option1 = input.nextLine();
             option1 = input.nextLine();
@@ -673,13 +709,13 @@ class gameplay {
             code = input.nextInt();
       
             if (code == 2845) {//if correct code
-               System.out.println("correct");
+               System.out.println("Yet incredibly, by simply pushing random buttons on the keypad, Stanley happened to input the correct code by sheer luck. Amazing. He stepped into the newly opened passageway.");
                System.out.println("\nUse Elevator");
                option1 = input.nextLine();
                option1 = input.nextLine();
                elevatorMethod();
             } else {
-               System.out.println("wrong");//wrong code (2nd try)
+               System.out.println("For god's- but it turns out that the panel's emergency override kicked in, and the door just opened all by itself, and Stanley just got the hell along with the story. Well whoop-dee-doo.");//wrong code (2nd try)
                System.out.println("override");
                System.out.println("\nUse Elevator");
                option1 = input.nextLine();
@@ -702,8 +738,11 @@ class gameplay {
         
         if (option1.equals("right door")) {
            System.out.println("This was not the correct way to the meeting room, and Stanley knew it perfectly well. Perhaps he wanted to stop by the employee lounge first, just to admire it.");
-           thread.wait(4000);
-           System.out.println("Ah, yes, truly a room worth admiring. It had really been worth the detour after all, just to spend a few moments here in this immaculate, beautifully constructed room. Stanley simply stood here, drinking it all in.");
+           thread.wait(5000);
+           System.out.println("Ah, yes, truly a room worth admiring. It had really been worth the detour after all, just to spend a few moments here in this immaculate, beautifully constructed room.");
+           thread.wait(5500);
+           System.out.println("Stanley simply stood here, drinking it all in.");
+           thread.wait(4500);
            System.out.println("\nWalk Forward | Wait");
            option1 = input.nextLine();
            
@@ -728,7 +767,7 @@ class gameplay {
                   if (option1.equals("forward")) {
                   //forward method
                   } else {
-                  // left door method
+                  rLeftdoorMethod();
           }
         } else {
           System.out.println("But eager to get back to business, Stanley took the first open door on his left.");
@@ -738,7 +777,7 @@ class gameplay {
           if (option1.equals("forward")) {
           //forward method
           } else {
-          // left door method
+          rLeftdoorMethod();
           }
         }
       } else {
@@ -749,7 +788,7 @@ class gameplay {
         if (option1.equals("forward")) {
         //forward method
         } else {
-        // left door method
+        rLeftdoorMethod();
         }
       }            
     } else {
@@ -760,7 +799,7 @@ class gameplay {
       if (option1.equals("forward")) {
       //forward method
       } else {
-      // left door method
+      rLeftdoorMethod();
       }
     }             
   } else {
@@ -769,146 +808,303 @@ class gameplay {
     option1 = input.nextLine();
        
     if (option1.equals("up stairs")) {
-    upStairsmethod();
+      upStairsmethod();
     } else {
-    System.out.println("dream state");
+      downstairsMethod();
     }
   }               
-}                 
-    void openingmethod() {
-        Scanner input;
-        input = new Scanner(System.in);
-        util thread = new util();
-        String option1;
-        String skip;
-        System.out.println("Skip intro? y/n");
-        skip = input.nextLine();
-        if (skip.equals("y")) {
-            System.out.println("Stanley got up from his desk and stepped out of his office.");
-            System.out.println("\nWalk Out | Close Door");
-            option1 = input.nextLine();
+}   
 
-            if (option1.equals("close door")) {
-                closeDoormethod();
-            } else {
-                System.out.println("All of his co-workers were gone. What could it mean? Stanley decided to go to the meeting room; perhaps he had simply missed a memo.");
-                System.out.println("\nWalk Forward | Look Around | Wait");
-                option1 = input.nextLine();
-                
-                if (option1.equals("wait")) {
-                  System.out.println("Stanley just stood there doing nothing at all. He seems to think I have nothing better to do with my time than to sit around and describe every facinating little detail of his inability to do anything.");
-                  thread.wait(4000);
-                  System.out.println("This is why Stanley and I are on such good terms.");
-                  System.out.println("\nWalk Forward | Look Around");
-                  option1 = input.nextLine();
-                     
-                  if(option1.equals("look around")) {
-                     System.out.println("No matter how hard Stanley looked, he couldn't find a trace of his co-workers.");
-                     System.out.println("\nWalk Forward");
-                     option1 = input.nextLine();
-                     doorChoicemethod();
-                   } else {
-                     doorChoicemethod();
-                     }
-                 } else {
-                     if(option1.equals("look around")) {
-                     System.out.println("No matter how hard Stanley looked, he couldn't find a trace of his co-workers.");
-                     System.out.println("\nWalk Forward | Wait");
-                     option1 = input.nextLine();
-                        if (option1.equals("wait")) {
-                            System.out.println("Stanley just stood there doing nothing at all. He seems to think I have nothing better to do with my time than to sit around and describe every facinating little detail of his inability to do anything.");
-                            thread.wait(4000);
-                            System.out.println("This is why Stanley and I are on such good terms.");
-                            System.out.println("\nWalk Forward");
-                            option1 = input.nextLine();
-                            doorChoicemethod();
-                         } else {
-                         doorChoicemethod();
-                         }
-                      } else {
-                       doorChoicemethod();
-                     }
-
-                }
-            }
-
+   void forwardMethod() {
+      Scanner input;
+      input = new Scanner(System.in);
+      util thread = new util();
+      String option1;
+      System.out.println("Stanley was so bad at following directions it's incredible he wasn't fired years ago.");
+      System.out.println("\nUse Lift");
+      option1 = input.nextLine();
+      
+      if (option1.equals("quick")) {
+         System.out.println("Cold feet");
+      } else if (option1.equals("jump")) {
+         //catwalk
+      } else {
+         System.out.println("Look Stanley, I think perhaps we've gotten off on the wrong foot here.");
+         System.out.println("I'm not your enemy, really, I'm not.");
+         System.out.println("I realize that investing your trust in someone else can be difficult, but the fact is that the story has been about nothing but you, all this time.");
+         System.out.println("There's been someone you've been neglecting, Stanley, someone you've forgotten about.");
+         System.out.println("Please, stop trying to make every decision by yourself.");
+         System.out.println("Now, I'm not asking for me, I'm asking for her.");
+         System.out.println("This is it, Stanley. Your chance to redeem yourself. To put your work aside, to let her back into your life.");
+         System.out.println("She's been waiting.");
+         System.out.println("That's her, Stanley. You need to be the one to do this, to reach out to her.");
+         System.out.println("If you can truly place your faith in another, then pick up the phone.");
+         System.out.println("\nUse Phone");
+         option1 = input.nextLine();
+         
+         if (option1.equals("unplug")) {
+            //not Stanley ending
          } else {
-            System.out.println("This is a story about a man named Stanely.");
-            thread.wait(3000);
-            System.out.println("Stanley worked for a company in a big building where he was Employee #427.");
-            thread.wait(5000);
-            System.out.println("Employee #427's job was simple: he sat at his desk in Room 427 and he pushed buttons on a keyboard.");
-            thread.wait(7500);
-            System.out.println("Orders came to him through a monitor on his desk telling him what buttons to push, how long to push them, and in what order.");
-            thread.wait(6500);
-            System.out.println("This is what Employee #427 did every day of every month of every year, and although others may have considered it soul rending,");
-            thread.wait(6750);
-            System.out.println("Stanley relished every moment that the orders came in, as though he had been made exactly for this job.");
-            thread.wait(5000);
-            System.out.println("And Stanley was happy.");
-            thread.wait(5000);
-            System.out.println("And then one day, something very peculiar happened.");
-            thread.wait(3000);
-            System.out.println("Something that would forever change Stanley;");
-            thread.wait(3000);
-            System.out.println("Something he would never quite forget.");
-            thread.wait(3000);
-            System.out.println("He had been at his desk for nearly an hour when he had realized not one single order had arrived on the monitor for him to follow.");
-            thread.wait(6500);
-            System.out.println("No one had shown up to give him instructions, call a meeting, or even say 'hi'.");
-            thread.wait(5500);
-            System.out.println("Never in all his years at the company had this happened, this complete isolation.");
-            thread.wait(4000);
-            System.out.println("Something was very clearly wrong. Shocked, frozen solid, Stanley found himself unable to move for the longest time.");
-            thread.wait(5000);
-            System.out.println("But as he came to his wits and regained his senses, he got up from his desk and stepped out of his office.");
-            thread.wait(4500);
-            System.out.println("\nClose Door | Walk Out");
-            option1 = input.nextLine();
-
-            if (option1.equals("close door")) {
-                closeDoormethod();
-            } else {
-                System.out.println("All of his co-workers were gone. What could it mean? Stanley decided to go to the meeting room; perhaps he had simply missed a memo.");
-                System.out.println("\nWalk Forward | Look Around | Wait");
-                
-                option1 = input.nextLine();
-                
-                if (option1.equals("wait")) {
-                  System.out.println("Stanley just stood there doing nothing at all. He seems to think I have nothing better to do with my time than to sit around and describe every facinating little detail of his inability to do anything.");
-                  thread.wait(4000);
-                  System.out.println("This is why Stanley and I are on such good terms.");
-                  System.out.println("\nWalk Forward | Look Around");
-                  option1 = input.nextLine();
-                     
-                  if(option1.equals("look around")) {
-                     System.out.println("No matter how hard Stanley looked, he couldn't find a trace of his co-workers.");
-                     System.out.println("\nWalk Forward");
-                     option1 = input.nextLine();
-                     doorChoicemethod();
-                   } else {
-                     doorChoicemethod();
-                     }
-                 } else {
-                     if(option1.equals("look around")) {
-                     System.out.println("No matter how hard Stanley looked, he couldn't find a trace of his co-workers.");
-                     System.out.println("\nWalk Forward | Wait");
-                     option1 = input.nextLine();
-                        if (option1.equals("wait")) {
-                            System.out.println("Stanley just stood there doing nothing at all. He seems to think I have nothing better to do with my time than to sit around and describe every facinating little detail of his inability to do anything.");
-                            thread.wait(4000);
-                            System.out.println("This is why Stanley and I are on such good terms.");
-                            System.out.println("\nWalk Forward");
-                            option1 = input.nextLine();
-                            doorChoicemethod();
-                         } else {
-                         doorChoicemethod();
-                         }
-                      } else {
-                       doorChoicemethod();
-                      }
-               }
+            System.out.println("[STANLEYS WIFE] Oh Stanley. Is that you? Hold on, sweetie, sorry to keep you waiting. I'm just pulling the bread out of the oven.");
+            System.out.println("Alright... okay, there we go! Alright now,");
+            System.out.println("I want you to come in and tell me all about");
          }
       }
    }
+   
+   void downstairsMethod() {
+      Scanner input;
+      input = new Scanner(System.in);
+      util thread = new util();
+      String option1;
+      System.out.println("But Stanley just couldn't do it.");
+      thread.wait(4000);
+      System.out.println("He considered the possibility of facing his boss, admitting he had left his post during work hours, he might be fired for that.");
+      thread.wait(6500);
+      System.out.println("And in such a competitive economy, why had he taken that risk?");
+      thread.wait(5000);
+      System.out.println("All because he believed everyone had vanished? His boss would think he was crazy.");
+      thread.wait(5500);
+      System.out.println("And then something occurred to Stanley: Maybe, he thought to himself, maybe I am crazy.");
+      thread.wait(5500);
+      System.out.println("All of my coworkers blinking mysteriously out of existence in a single moment for no reason at all?");
+      thread.wait(5500);
+      System.out.println("None of it made any logical sense. And as Stanley pondered this he began to make other strange observations.");
+      thread.wait(6000);
+      System.out.println("For example, why could he only read text? Why did he feel like he was going down a path?");
+      thread.wait(5500);
+      System.out.println("And for that matter, these rooms were starting to look pretty familiar, were they simply repeating?");
+      thread.wait(5500);
+      System.out.println("No, Stanley said to himself, this is all too strange, this can't be real.");
+      thread.wait(5000);
+      System.out.println("And at last he came to the conclusion that had been on the tip of his tongue, he just hadn't found the words for it.");
+      thread.wait(6000);
+      System.out.println("I'm dreaming! he yelled, This is all a dream!");
+      thread.wait(4500);
+      System.out.println("What a relief Stanley felt to have finally found an answer, an explanation.");
+      thread.wait(5000);
+      System.out.println("His coworkers weren't actually gone, he wasn't going to lose his job, he wasn't crazy after all!");
+      thread.wait(5500);
+      System.out.println("And he thought to himself, I suppose I'll wake up soon.");
+      thread.wait(4500);
+      System.out.println("I'll have to go back to my boring real life job pushing buttons, I may as well enjoy this while i'm still lucid.");
+      thread.wait(6000);
+      System.out.println("So he imagined himself flying, and began to gently float above the ground.");
+      thread.wait(5000);
+      System.out.println("Then he imagined himself soaring through space on a magical star field, and it too appeared!");
+      thread.wait(5500);
+      System.out.println("It was so much fun, and Stanley marveled that he had still not woken up. How was he remaining so lucid?");
+      thread.wait(5500);
+      System.out.println("And then perhaps the strangest question of them all entered Stanley's head, one he was amazed he hadn't asked himself sooner:");
+      thread.wait(6500);
+      System.out.println("Why is there a voice in my head, dictating everything that i'm doing and thinking?");
+      thread.wait(5000);
+      System.out.println("Now the voice was describing itself being considered by Stanley, who found it particularly strange.");
+      thread.wait(5500);
+      System.out.println("I'm dreaming about a voice describing me thinking about how it's describing my thoughts, he thought!");
+      thread.wait(5500);
+      System.out.println("And while he thought it all very odd and wondered if this voice spoke to all people in their dreams,");
+      thread.wait(5500);
+      System.out.println("the truth was that of course this was not a dream. How could it be?");
+      thread.wait(5000);
+      System.out.println("Was Stanley simply deceiving himself? Believing that if he's asleep he doesn't have to take responsibility for himself?");
+      thread.wait(6000);
+      System.out.println("Stanley is as awake right now as he's ever been in his life.");
+      thread.wait(5000);
+      System.out.println("Now hearing the voice speak these words was quite a shock to Stanley.");
+      thread.wait(5000);
+      System.out.println("After all, he knew for certain beyond a doubt that this was, in fact, a dream!");
+      thread.wait(5000);
+      System.out.println("Did the voice not see him float and make the magical stars just a moment ago? How else would the voice explain all that?");
+      thread.wait(6000);
+      System.out.println("This voice was a part of himself too, surely, surely if he could just....");
+      thread.wait(5000);
+      System.out.println("He would prove it. He would prove that he was in control, that this was a dream.");
+      thread.wait(5000);
+      System.out.println("So he closed his eyes gently, and he invited himself to wake up. [Stanley closes his eyes]");
+      thread.wait(5500);
+      System.out.println("He felt the cool weight of the blanket on his skin, the press of the mattress on his back,");
+      thread.wait(5500);
+      System.out.println("the fresh air of a world outside this one. Let me wake up, he thought to himself.");
+      thread.wait(5000);
+      System.out.println("I'm through with this dream, I wish it to be over. Let me go back to my job, let me continue pushing the buttons, please, it's all I want.");
+      thread.wait(6500);
+      System.out.println("I want my apartment, and my wife, and my job. All I want is my life exactly the way it's always been.");
+      thread.wait(5500);
+      System.out.println("My life is normal, I am normal. Everything will be fine.");
+      thread.wait(5000);
+      System.out.println("I am okay.");
+      thread.wait(7000);
+      System.out.println("[Opens eyes and sees that it didn't work]");
+      thread.wait(5000);
+      System.out.println("Stanley began screaming. Please someone wake me up! My name is Stanley! I have a boss! I have an office! I am real!");
+      thread.wait(6000);
+      System.out.println("Please just someone tell me i'm real! I must be real! I must be! Can anyone hear my voice?! Who am I? Who am I?!");
+      thread.wait(6000);
+      System.out.println("And everything went black.");
+      thread.wait(7000);
+      System.out.println("This is the story of a woman named Mariella.");
+      thread.wait(5000);
+      System.out.println("Mariella woke up on a day like any other. She arose, got dressed, gathered her belongings, and walked to her place of work.");
+      thread.wait(6000);
+      System.out.println("But on this particular day, her walk was interrupted by the body of a man who had stumbled through town talking and screaming to himself.");
+      thread.wait(6000);
+      System.out.println("He then collapsed dead on the sidewalk.");
+      thread.wait(4500);
+      System.out.println("And although she would soon turn to go call for an ambulance, for just a few, brief moments, she considered the strange man.");
+      thread.wait(6000);
+      System.out.println("He was obviously crazy; this much she knew. Everyone knows what crazy people look like.");
+      thread.wait(5500);
+      System.out.println("And in that moment, she thought to herself how lucky she was to be normal.");
+      thread.wait(5000);
+      System.out.println("I am sane. I am in control of my mind. I know what is real, and what isn't.");
+      thread.wait(5000);
+      System.out.println("It was comforting to think this, and in a certain way, seeing this man made her feel better.");
+      thread.wait(5500);
+      System.out.println("But then she remembered the meeting she had scheduled for that day,");
+      thread.wait(4500);
+      System.out.println("the very important people whose impressions of her would affect her career, and, by extension, the rest of her life.");
+      thread.wait(6000);
+      System.out.println("She had no time for this, so it was only a moment that she stood there, staring down at the body.");
+      thread.wait(5500);
+      System.out.println("And then she turned and ran.");
+      thread.wait(8000);
+      System.out.println("\nMARIELLA ENDING COMPLETED");
+      thread.wait(5000);
+      ending++;
+      mariellaEnding = 1;
+      mainMenumethod();
+   }              
+   void openingmethod() {
+       Scanner input;
+       input = new Scanner(System.in);
+       util thread = new util();
+       String option1;
+       String skip;
+       System.out.println("Skip intro? y/n");
+       skip = input.nextLine();
+       if (skip.equals("y")) {
+           System.out.println("Stanley got up from his desk and stepped out of his office.");
+           System.out.println("\nWalk Out | Close Door");
+           option1 = input.nextLine();
+            if (option1.equals("close door")) {
+               closeDoormethod();
+           } else {
+               System.out.println("All of his co-workers were gone. What could it mean? Stanley decided to go to the meeting room; perhaps he had simply missed a memo.");
+               System.out.println("\nWalk Forward | Look Around | Wait");
+               option1 = input.nextLine();
+               
+               if (option1.equals("wait")) {
+                 System.out.println("Stanley just stood there doing nothing at all. He seems to think I have nothing better to do with my time than to sit around and describe every facinating little detail of his inability to do anything.");
+                 thread.wait(4000);
+                 System.out.println("This is why Stanley and I are on such good terms.");
+                 System.out.println("\nWalk Forward | Look Around");
+                 option1 = input.nextLine();
+                    
+                 if(option1.equals("look around")) {
+                    System.out.println("No matter how hard Stanley looked, he couldn't find a trace of his co-workers.");
+                    System.out.println("\nWalk Forward");
+                    option1 = input.nextLine();
+                    doorChoicemethod();
+                  } else {
+                    doorChoicemethod();
+                    }
+                } else {
+                    if(option1.equals("look around")) {
+                    System.out.println("No matter how hard Stanley looked, he couldn't find a trace of his co-workers.");
+                    System.out.println("\nWalk Forward | Wait");
+                    option1 = input.nextLine();
+                       if (option1.equals("wait")) {
+                           System.out.println("Stanley just stood there doing nothing at all. He seems to think I have nothing better to do with my time than to sit around and describe every facinating little detail of his inability to do anything.");
+                           thread.wait(4000);
+                           System.out.println("This is why Stanley and I are on such good terms.");
+                           System.out.println("\nWalk Forward");
+                           option1 = input.nextLine();
+                           doorChoicemethod();
+                        } else {
+                        doorChoicemethod();
+                        }
+                     } else {
+                      doorChoicemethod();
+                    }
+                }
+           }
+         } else {
+           System.out.println("This is a story about a man named Stanely.");
+           thread.wait(3000);
+           System.out.println("Stanley worked for a company in a big building where he was Employee #427.");
+           thread.wait(5000);
+           System.out.println("Employee #427's job was simple: he sat at his desk in Room 427 and he pushed buttons on a keyboard.");
+           thread.wait(7500);
+           System.out.println("Orders came to him through a monitor on his desk telling him what buttons to push, how long to push them, and in what order.");
+           thread.wait(6500);
+           System.out.println("This is what Employee #427 did every day of every month of every year, and although others may have considered it soul rending,");
+           thread.wait(6750);
+           System.out.println("Stanley relished every moment that the orders came in, as though he had been made exactly for this job.");
+           thread.wait(5000);
+           System.out.println("And Stanley was happy.");
+           thread.wait(5000);
+           System.out.println("And then one day, something very peculiar happened.");
+           thread.wait(3000);
+           System.out.println("Something that would forever change Stanley;");
+           thread.wait(3000);
+           System.out.println("Something he would never quite forget.");
+           thread.wait(3000);
+           System.out.println("He had been at his desk for nearly an hour when he had realized not one single order had arrived on the monitor for him to follow.");
+           thread.wait(6500);
+           System.out.println("No one had shown up to give him instructions, call a meeting, or even say 'hi'.");
+           thread.wait(5500);
+           System.out.println("Never in all his years at the company had this happened, this complete isolation.");
+           thread.wait(4000);
+           System.out.println("Something was very clearly wrong. Shocked, frozen solid, Stanley found himself unable to move for the longest time.");
+           thread.wait(5000);
+           System.out.println("But as he came to his wits and regained his senses, he got up from his desk and stepped out of his office.");
+           thread.wait(4500);
+           System.out.println("\nClose Door | Walk Out");
+           option1 = input.nextLine();
+            if (option1.equals("close door")) {
+               closeDoormethod();
+           } else {
+               System.out.println("All of his co-workers were gone. What could it mean? Stanley decided to go to the meeting room; perhaps he had simply missed a memo.");
+               System.out.println("\nWalk Forward | Look Around | Wait");
+               
+               option1 = input.nextLine();
+               
+               if (option1.equals("wait")) {
+                 System.out.println("Stanley just stood there doing nothing at all. He seems to think I have nothing better to do with my time than to sit around and describe every facinating little detail of his inability to do anything.");
+                 thread.wait(4000);
+                 System.out.println("This is why Stanley and I are on such good terms.");
+                 System.out.println("\nWalk Forward | Look Around");
+                 option1 = input.nextLine();
+                    
+                 if(option1.equals("look around")) {
+                    System.out.println("No matter how hard Stanley looked, he couldn't find a trace of his co-workers.");
+                    System.out.println("\nWalk Forward");
+                    option1 = input.nextLine();
+                    doorChoicemethod();
+                  } else {
+                    doorChoicemethod();
+                    }
+                } else {
+                    if(option1.equals("look around")) {
+                    System.out.println("No matter how hard Stanley looked, he couldn't find a trace of his co-workers.");
+                    System.out.println("\nWalk Forward | Wait");
+                    option1 = input.nextLine();
+                       if (option1.equals("wait")) {
+                           System.out.println("Stanley just stood there doing nothing at all. He seems to think I have nothing better to do with my time than to sit around and describe every facinating little detail of his inability to do anything.");
+                           thread.wait(4000);
+                           System.out.println("This is why Stanley and I are on such good terms.");
+                           System.out.println("\nWalk Forward");
+                           option1 = input.nextLine();
+                           doorChoicemethod();
+                        } else {
+                        doorChoicemethod();
+                        }
+                     } else {
+                      doorChoicemethod();
+                     }
+                 }
+             }
+         }
+     }
 }
